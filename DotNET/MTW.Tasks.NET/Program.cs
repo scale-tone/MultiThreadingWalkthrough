@@ -20,8 +20,8 @@ namespace MTW.Tasks
             Console.WriteLine("Press any key to proceed and then any key to cancel");
             Console.ReadKey();
 
-            // ProcessLinkWithTasks(rootLink);
-            ProcessLinkWithLimitedAmountOfTasks(rootLink);
+            ProcessLinkWithTasks(rootLink);
+            // ProcessLinkWithLimitedAmountOfTasks(rootLink);
 
             Console.ReadKey();
         }
