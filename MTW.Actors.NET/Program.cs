@@ -10,9 +10,13 @@ namespace MTW.Actors
         private static readonly ConnectionMultiplexer RedisConnection = ConnectionMultiplexer.Connect("localhost:6379");
         private const string ListKey = "link_queue";
 
+        private static readonly HttpClient Client = new HttpClient();
+
         // dotnet run https://learn.microsoft.com/en-gb/
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
+            Client.DefaultRequestHeaders.Add("User-Agent", Constants.UserAgentString);
+
             var redis = RedisConnection.GetDatabase();
 
             if (args.Length > 0)
@@ -24,7 +28,7 @@ namespace MTW.Actors
             string? link = redis.ListRightPop(ListKey);
             while (link != null)
             {
-                await ProcessNextLink(link);
+                ProcessNextLink(link);
 
                 link = redis.ListRightPop(ListKey);
             }
@@ -33,18 +37,14 @@ namespace MTW.Actors
             Console.WriteLine("Finished!");
         }
 
-        static async Task ProcessNextLink(string link)
+        static void ProcessNextLink(string link)
         {
             Console.WriteLine(link);
 
-            using var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", Constants.UserAgentString);
-
             try
             {
-                using var response = await client.GetAsync(link);
-                string html = await response.Content.ReadAsStringAsync();
-                
+                string html = Client.GetStringAsync(link).Result;
+
                 ParseHtml(html);
             }
             catch (Exception ex)

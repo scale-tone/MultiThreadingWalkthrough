@@ -4,11 +4,15 @@ namespace MTW.LockFree
 {
     class Program
     {
+        private static readonly HttpClient Client = new HttpClient();
+
         static readonly LockFreeStack<string> Links = new LockFreeStack<string>();
 
         // dotnet run https://learn.microsoft.com/en-gb/
         static void Main(string[] args)
         {
+            Client.DefaultRequestHeaders.Add("User-Agent", Constants.UserAgentString);
+
             string rootLink = args[0];
             Links.Push(rootLink);
 
@@ -35,13 +39,9 @@ namespace MTW.LockFree
         {
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId + ": " + link);
 
-            using var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", Constants.UserAgentString);
-
             try
             {
-                using var response = client.GetAsync(link).Result;
-                string html = response.Content.ReadAsStringAsync().Result;
+                string html = Client.GetStringAsync(link).Result;
                 
                 ParseHtml(html);
             }

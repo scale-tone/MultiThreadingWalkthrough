@@ -21,8 +21,7 @@ namespace MTW.CoRoutines
 
                 try
                 {
-                    using var response = await client.GetAsync(link);
-                    string html = await response.Content.ReadAsStringAsync();
+                    string html = await client.GetStringAsync(link);
 
                     coroutine.ParseHtml(html);
                 }
