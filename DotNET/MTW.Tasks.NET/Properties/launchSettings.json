@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MTW.Tasks.NET": {
+      "commandName": "Project",
+      "commandLineArgs": "https://learn.microsoft.com/en-gb/"
+    }
+  }
+}

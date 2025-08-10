@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MTW.CoRoutines", "MTW.CoRoutines\MTW.CoRoutines.csproj", "{C027EBBB-C378-47E9-AFAF-0DDDF9A18F21}"
 EndProject
@@ -26,8 +26,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetDemo", "AspNetDemo\AspNetDemo.csproj", "{D5D89E57-35E8-46CF-82ED-6D3475CE9D52}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActiveObjectDemo", "ActiveObjectDemo\ActiveObjectDemo.csproj", "{3C705003-1851-47B4-B900-9F4D10C3241A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreDemo", "AspNetCoreDemo\AspNetCoreDemo.csproj", "{FA309FB7-A76E-49B8-9008-37C34E289CB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,10 +81,6 @@ Global
 		{3C705003-1851-47B4-B900-9F4D10C3241A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C705003-1851-47B4-B900-9F4D10C3241A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C705003-1851-47B4-B900-9F4D10C3241A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA309FB7-A76E-49B8-9008-37C34E289CB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA309FB7-A76E-49B8-9008-37C34E289CB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA309FB7-A76E-49B8-9008-37C34E289CB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA309FB7-A76E-49B8-9008-37C34E289CB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
